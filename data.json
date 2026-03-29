@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "match": "Csk vs Srh",
+    "venue": "Uppal Stadium Hyderabad",
+    "date": "2026-03-28",
+    "season": "IPL 2026",
+    "lastUpdated": "2026-04-15T19:30:00"
+  },
+  "rcb": {
+    "label": "Csk Bowling (Srh Innings)",
+    "overs": [
+      { "over": 1,  "bowler": "run",    "runs": 10, "wicket": false },
+      { "over": 2,  "bowler": "manish",     "runs": 8,  "wicket": false },
+      { "over": 3,  "bowler": "ran",         "runs": 6,  "wicket": false },
+      { "over": 4,  "bowler": "Komal",     "runs": 11, "wicket": true  },
+      { "over": 5,  "bowler": "karan",     "runs": 9,  "wicket": false },
+      { "over": 6,  "bowler": "Yash Dayal",         "runs": 7,  "wicket": false },
+      { "over": 7,  "bowler": "Virat Kohli",        "runs": 12, "wicket": false },
+      { "over": 8,  "bowler": "Glenn Maxwell",      "runs": 9,  "wicket": false },
+      { "over": 9,  "bowler": "Krunal Pandya",      "runs": 4,  "wicket": false },
+      { "over": 10, "bowler": "Mohammed Siraj",     "runs": 6,  "wicket": false },
+      { "over": 11, "bowler": "Josh Hazlewood",     "runs": 9,  "wicket": true  },
+      { "over": 12, "bowler": "Yash Dayal",         "runs": 9,  "wicket": false },
+      { "over": 13, "bowler": "Glenn Maxwell",      "runs": 7,  "wicket": false },
+      { "over": 14, "bowler": "Krunal Pandya",      "runs": 9,  "wicket": false },
+      { "over": 15, "bowler": "Mohammed Siraj",     "runs": 6,  "wicket": true  },
+      { "over": 16, "bowler": "Josh Hazlewood",     "runs": 8,  "wicket": true  },
+      { "over": 17, "bowler": "Yash Dayal",         "runs": 6,  "wicket": false },
+      { "over": 18, "bowler": "Glenn Maxwell",      "runs": 8,  "wicket": false },
+      { "over": 19, "bowler": "Krunal Pandya",      "runs": 7,  "wicket": false },
+      { "over": 20, "bowler": "Mohammed Siraj",     "runs": 9,  "wicket": false }
+    ]
+  },
+  "mi": {
+    "label": "MI Bowling (RCB Innings)",
+    "overs": [
+      { "over": 1,  "bowler": "Jasprit Bumrah",     "runs": 5,  "wicket": false },
+      { "over": 2,  "bowler": "Trent Boult",        "runs": 9,  "wicket": true  },
+      { "over": 3,  "bowler": "Hardik Pandya",      "runs": 12, "wicket": false },
+      { "over": 4,  "bowler": "Jasprit Bumrah",     "runs": 4,  "wicket": true  },
+      { "over": 5,  "bowler": "Trent Boult",        "runs": 7,  "wicket": false },
+      { "over": 6,  "bowler": "Kumar Kartikeya",    "runs": 11, "wicket": false },
+      { "over": 7,  "bowler": "Hardik Pandya",      "runs": 8,  "wicket": false },
+      { "over": 8,  "bowler": "Jasprit Bumrah",     "runs": 6,  "wicket": false },
+      { "over": 9,  "bowler": "Kumar Kartikeya",    "runs": 10, "wicket": false },
+      { "over": 10, "bowler": "Trent Boult",        "runs": 9,  "wicket": false },
+      { "over": 11, "bowler": "Hardik Pandya",      "runs": 13, "wicket": false },
+      { "over": 12, "bowler": "Jasprit Bumrah",     "runs": 5,  "wicket": true  },
+      { "over": 13, "bowler": "Kumar Kartikeya",    "runs": 8,  "wicket": false },
+      { "over": 14, "bowler": "Trent Boult",        "runs": 7,  "wicket": false },
+      { "over": 15, "bowler": "Hardik Pandya",      "runs": 11, "wicket": false },
+      { "over": 16, "bowler": "Jasprit Bumrah",     "runs": 6,  "wicket": true  },
+      { "over": 17, "bowler": "Kumar Kartikeya",    "runs": 9,  "wicket": false },
+      { "over": 18, "bowler": "Trent Boult",        "runs": 12, "wicket": false },
+      { "over": 19, "bowler": "Hardik Pandya",      "runs": 8,  "wicket": false },
+      { "over": 20, "bowler": "Jasprit Bumrah",     "runs": 7,  "wicket": false }
+    ]
+  }
+}

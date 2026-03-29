@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ═══════════════════════════════════════════════
+       BowlerStats.in — IPL Bowler Run Analysis
+       SEO Optimized · AdSense Ready · Mobile Responsive
+       ═══════════════════════════════════════════════ -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── Primary SEO ── -->
+  <title>BowlerStats | IPL Bowler Run Analysis — Over-by-Over Histogram</title>
+  <meta name="description"
+        content="Live IPL match analysis focused on bowler performance. Track runs conceded by each bowler per over with interactive histograms. RCB vs MI, CSK, KKR and all IPL 2025 matches." />
+  <meta name="keywords"
+        content="IPL bowler stats, IPL 2025 bowler analysis, RCB vs MI bowler runs, cricket bowling figures, over by over analysis, IPL histogram, Mohammed Siraj stats, Jasprit Bumrah economy, IPL live bowling analysis, cricket statistics India" />
+  <meta name="author"       content="BowlerStats.in" />
+  <meta name="robots"       content="index, follow, max-image-preview:large" />
+  <meta name="theme-color"  content="#0b0f1a" />
+  <link rel="canonical"     href="https://bowlerstats.in/" />
+
+  <!-- ── Open Graph / Facebook ── -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://bowlerstats.in/" />
+  <meta property="og:title"       content="BowlerStats — IPL Bowler Run Analysis" />
+  <meta property="og:description" content="Live over-by-over analysis of IPL bowler performance. Who conceded the most runs? Find out with interactive histograms." />
+  <meta property="og:image"       content="https://bowlerstats.in/og-image.jpg" />
+  <meta property="og:locale"      content="en_IN" />
+  <meta property="og:site_name"   content="BowlerStats.in" />
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="BowlerStats — IPL Bowler Run Analysis" />
+  <meta name="twitter:description" content="Interactive over-by-over IPL bowler stats. Runs, wickets, economy — all in one histogram." />
+  <meta name="twitter:image"       content="https://bowlerstats.in/og-image.jpg" />
+  <meta name="twitter:site"        content="@BowlerStats" />
+
+  <!-- ── Structured Data (JSON-LD) ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "RCB vs MI — IPL 2025 Bowler Stats",
+    "description": "Over-by-over bowler run analysis for IPL 2025 match between Royal Challengers Bangalore and Mumbai Indians.",
+    "sport": "Cricket",
+    "startDate": "2025-04-15",
+    "location": {
+      "@type": "Place",
+      "name": "M. Chinnaswamy Stadium",
+      "address": "Bangalore, Karnataka, India"
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Board of Control for Cricket in India",
+      "url": "https://www.bcci.tv"
+    },
+    "url": "https://bowlerstats.in/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "BowlerStats.in",
+    "url": "https://bowlerstats.in/",
+    "description": "IPL bowler performance statistics with over-by-over run histograms",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://bowlerstats.in/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- ── Google AdSense ── -->
+  <!-- REPLACE ca-pub-XXXXXXXXXXXXXXXX with your actual AdSense Publisher ID -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          crossorigin="anonymous"></script>
+
+  <!-- ── Preconnect / Fonts ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- ── Favicon ── -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏏</text></svg>" />
+
+  <!-- ── Stylesheet ── -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════
+       LOADING SCREEN
+       ══════════════════════════════════════ -->
+  <div class="loading-overlay" id="loader" aria-hidden="true">
+    <div class="loader-cricket">🏏 &nbsp; LOADING MATCH DATA…</div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+       ══════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="BowlerStats Home">BOWLER<span>STATS</span></a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#analysis">Analysis</a></li>
+      <li><a href="#previous-matches">Matches</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO / MATCH HEADER
+       ══════════════════════════════════════ -->
+  <header class="match-hero" role="banner">
+    <div class="season-tag" id="match-season">IPL 2025</div>
+    <h1 id="match-title">RCB <span>vs</span> MI</h1>
+    <div class="match-meta">
+      <span id="match-venue">📍 M. Chinnaswamy Stadium, Bangalore</span>
+      &nbsp;·&nbsp;
+      <span id="match-date">🗓 15 April 2025</span>
+    </div>
+    <div class="live-badge" role="status">LIVE MATCH</div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       LEADERBOARD AD — TOP
+       ══════════════════════════════════════ -->
+  <div class="container">
+    <div class="ad-slot leaderboard" aria-label="Advertisement">
+      <!-- Google AdSense Leaderboard 728×90 -->
+      <!-- REPLACE with your actual ad unit code -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <span>Advertisement · 728×90</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MAIN CONTENT
+       ══════════════════════════════════════ -->
+  <main id="analysis" class="container" role="main">
+
+    <div class="layout-with-sidebar">
+
+      <!-- ── Left: Chart + Table ── -->
+      <div class="main-content">
+
+        <!-- Stats Summary Cards -->
+        <div class="stats-grid" aria-label="Match statistics summary">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-total">—</div>
+            <div class="stat-label">Total Runs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-wickets">—</div>
+            <div class="stat-label">Wickets</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-economy">—</div>
+            <div class="stat-label">Avg Economy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-max">—</div>
+            <div class="stat-label">Worst Over</div>
+          </div>
+        </div>
+
+        <!-- Team Tabs -->
+        <div class="section-header">
+          <h2>Over-by-Over Analysis</h2>
+          <span class="badge badge-rcb" id="section-badge">RCB BOWLING</span>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Select team bowling innings">
+          <button class="tab-btn active" data-team="rcb" role="tab" aria-selected="true">
+            🔴 Srh Bowling
+          </button>
+          <button class="tab-btn" data-team="mi" role="tab" aria-selected="false">
+            🔵 CSK Bowling
+          </button>
+        </div>
+
+        <!-- Histogram Chart -->
+        <div class="chart-card" aria-label="Bowler runs histogram">
+          <div class="chart-title">RUNS CONCEDED PER OVER</div>
+
+          <div class="histogram-wrapper">
+            <div class="histogram" id="histogram-container" role="img" aria-label="Bar chart showing runs conceded per over">
+              <!-- Bars injected by JS -->
+            </div>
+          </div>
+
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--bar-default)"></div>
+              Normal Over
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--bar-wicket)"></div>
+              Wicket Over
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--bar-hover)"></div>
+              Hover to inspect
+            </div>
+          </div>
+        </div>
+
+        <!-- In-content Ad -->
+        <div class="ad-slot" style="margin: 1.5rem 0;" aria-label="Advertisement">
+          <ins class="adsbygoogle"
+               style="display:block; text-align:center;"
+               data-ad-layout="in-article"
+               data-ad-format="fluid"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+               data-ad-slot="XXXXXXXXXX"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <span>Advertisement</span>
+        </div>
+
+        <!-- Bowler Breakdown Table -->
+        <div class="chart-card">
+          <div class="section-header" style="margin-bottom:1rem;">
+            <h2>Bowler Breakdown</h2>
+          </div>
+
+          <div class="bowler-table-wrap">
+            <table class="bowler-table" aria-label="Bowler statistics table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Bowler</th>
+                  <th>Overs</th>
+                  <th>Runs</th>
+                  <th>Wkts</th>
+                  <th>Economy</th>
+                </tr>
+              </thead>
+              <tbody id="bowler-tbody">
+                <!-- Rows injected by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div><!-- end .main-content -->
+
+      <!-- ── Right: Sidebar ── -->
+      <aside class="sidebar" aria-label="Match sidebar">
+
+        <!-- Momentum Sparkline -->
+        <div class="sidebar-card">
+          <h3>Run Momentum</h3>
+          <div class="sparkline-wrap">
+            <canvas class="sparkline" id="sparkline" aria-label="Run momentum sparkline chart"></canvas>
+          </div>
+          <p style="font-size:0.73rem; color:var(--text-muted); margin-top:0.5rem;">
+            Runs conceded over match progression
+          </p>
+        </div>
+
+        <!-- Most Expensive Bowlers -->
+        <div class="sidebar-card">
+          <h3>Most Expensive</h3>
+          <div class="rank-list" id="expensive-list">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Best Economy Bowlers -->
+        <div class="sidebar-card">
+          <h3>Best Economy 🏆</h3>
+          <div class="rank-list" id="best-list">
+            <!-- Injected by JS -->
+          </div>
+        </div>
+
+        <!-- Sidebar Rectangle Ad -->
+        <div class="ad-slot rectangle" aria-label="Advertisement">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+               data-ad-slot="XXXXXXXXXX"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+          <span>Advertisement · 300×250</span>
+        </div>
+
+      </aside>
+
+    </div><!-- end .layout-with-sidebar -->
+  </main>
+
+  <!-- ══════════════════════════════════════
+       PREVIOUS MATCHES
+       ══════════════════════════════════════ -->
+  <section id="previous-matches" aria-labelledby="prev-heading">
+    <div class="container">
+      <h2 id="prev-heading">Previous Matches</h2>
+
+      <div class="matches-grid">
+        <article class="match-card">
+          <div class="mc-date">12 April 2025</div>
+          <div class="mc-title">CSK vs RCB</div>
+          <div class="mc-result">RCB won by 14 runs</div>
+          <div class="mc-stats">
+            <span class="mc-stat">Siraj 3/24</span>
+            <span class="mc-stat">Maxwell 1/18</span>
+            <span class="mc-stat">164 runs total</span>
+          </div>
+        </article>
+
+        <article class="match-card">
+          <div class="mc-date">9 April 2025</div>
+          <div class="mc-title">MI vs KKR</div>
+          <div class="mc-result">MI won by 8 wickets</div>
+          <div class="mc-stats">
+            <span class="mc-stat">Bumrah 4/18</span>
+            <span class="mc-stat">Boult 2/22</span>
+            <span class="mc-stat">148 runs total</span>
+          </div>
+        </article>
+
+        <article class="match-card">
+          <div class="mc-date">6 April 2025</div>
+          <div class="mc-title">RCB vs SRH</div>
+          <div class="mc-result">SRH won by 5 wickets</div>
+          <div class="mc-stats">
+            <span class="mc-stat">Hazlewood 2/30</span>
+            <span class="mc-stat">Dayal 1/26</span>
+            <span class="mc-stat">172 runs total</span>
+          </div>
+        </article>
+
+        <article class="match-card">
+          <div class="mc-date">3 April 2025</div>
+          <div class="mc-title">PBKS vs MI</div>
+          <div class="mc-result">MI won by 3 wickets</div>
+          <div class="mc-stats">
+            <span class="mc-stat">Bumrah 3/21</span>
+            <span class="mc-stat">Hardik 1/15</span>
+            <span class="mc-stat">155 runs total</span>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       ABOUT SECTION
+       ══════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-text">
+          <h2 id="about-heading">Why Track<br><span style="color:var(--accent-gold)">Bowlers?</span></h2>
+          <p>
+            Cricket analysis has long been dominated by batting stats — strike rates, centuries, and
+            run tally. <span class="highlight">BowlerStats.in flips the script.</span> We believe the real
+            story of an IPL match is told through the bowler's economy rate and the pressure they exert.
+          </p>
+          <p>
+            Every over matters. A tight powerplay from a pace bowler can define the entire chase.
+            Our over-by-over histogram makes it instantly visible — which bowlers leaked runs, which
+            ones took wickets at crucial moments.
+          </p>
+
+          <ul class="about-features" aria-label="Website features">
+            <li>Live over-by-over histogram updated after each over</li>
+            <li>RCB and MI bowling comparison in one view</li>
+            <li>Economy rate colour-coded: green, amber, red</li>
+            <li>Wicket overs highlighted with 🎯 marker</li>
+            <li>Automatically deployed via GitHub → Vercel pipeline</li>
+            <li>No app needed — works perfectly on mobile browser</li>
+          </ul>
+        </div>
+
+        <div class="about-visual" aria-label="Statistics showcase">
+          <div class="big-stat">20</div>
+          <div class="big-label">Overs Tracked Per Innings</div>
+          <div class="sub-stats">
+            <div class="sub-stat-item">
+              <div class="val">2</div>
+              <div class="lbl">Teams</div>
+            </div>
+            <div class="sub-stat-item">
+              <div class="val">10</div>
+              <div class="lbl">Bowlers</div>
+            </div>
+            <div class="sub-stat-item">
+              <div class="val">∞</div>
+              <div class="lbl">Matches</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACT SECTION
+       ══════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <h2 id="contact-heading">Get In Touch</h2>
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <p>
+            Have a match you'd like us to cover? Want to advertise on BowlerStats.in?
+            Or just want to chat cricket analytics? We'd love to hear from you.
+          </p>
+          <p>
+            For advertising enquiries including banner ads, sponsored match analysis,
+            and brand partnerships, reach out directly.
+          </p>
+          <a href="mailto:hello@bowlerstats.in" class="email-link" aria-label="Email us">
+            ✉ hello@bowlerstats.in
+          </a>
+        </div>
+
+        <form class="contact-form" id="contact-form" aria-label="Contact form" novalidate>
+          <input type="text"  name="name"    placeholder="Your Name"       required aria-label="Your name" />
+          <input type="email" name="email"   placeholder="Email Address"   required aria-label="Email address" />
+          <input type="text"  name="subject" placeholder="Subject"                  aria-label="Subject" />
+          <textarea           name="message" placeholder="Your Message…"   required aria-label="Your message"></textarea>
+          <button type="submit">Send Message →</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER AD
+       ══════════════════════════════════════ -->
+  <div class="container" style="padding-bottom:1.5rem;">
+    <div class="ad-slot leaderboard" aria-label="Advertisement">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <span>Advertisement · 728×90</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="footer-logo">BOWLER<span style="color:#fff">STATS</span></div>
+    <ul class="footer-links" aria-label="Footer navigation">
+      <li><a href="#analysis">Analysis</a></li>
+      <li><a href="#previous-matches">Previous Matches</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="sitemap.xml">Sitemap</a></li>
+    </ul>
+    <p>© 2025 BowlerStats.in · Over-by-over IPL bowling analysis</p>
+    <p class="disclaimer">
+      This site is for informational and entertainment purposes only. 
+      BowlerStats.in is not affiliated with BCCI or the Indian Premier League. 
+      All match data is manually curated. Cricket statistics are updated live during matches.
+      <br>Google AdSense ads are served by Google LLC. See <a href="privacy.html">Privacy Policy</a>.
+    </p>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       SCROLL TO TOP
+       ══════════════════════════════════════ -->
+  <button id="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <!-- ══════════════════════════════════════
+       TOOLTIP (global)
+       ══════════════════════════════════════ -->
+  <div class="tooltip" id="tooltip" role="tooltip" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+       ══════════════════════════════════════ -->
+  <script src="app.js"></script>
+
+</body>
+</html>
